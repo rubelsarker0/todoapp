@@ -12,7 +12,7 @@ const addToDo = () => {
 	}
 };
 
-function editTodo(input) {
+const editTodo = (input) => {
 	let editBtn = create(
 		'button',
 		'btn btn-outline-secondary bg-success text-white'
@@ -37,9 +37,9 @@ function editTodo(input) {
 		}
 	});
 	return editBtn;
-}
+};
 
-function deleteTodo(container, todoDiv) {
+const deleteTodo = (container, todoDiv) => {
 	let deleteBtn = create(
 		'button',
 		'btn btn-outline-secondary bg-danger text-white'
@@ -51,7 +51,7 @@ function deleteTodo(container, todoDiv) {
 		container.removeChild(todoDiv);
 	});
 	return deleteBtn;
-}
+};
 
 const createToDoHtml = (userInput, container) => {
 	let todoDiv = create('div', 'pb-3 todo-item');
@@ -74,12 +74,12 @@ const createToDoHtml = (userInput, container) => {
 	return todoDiv;
 };
 
-function create(tag, className) {
+const create = (tag, className) => {
 	let createTag = document.createElement(tag);
 	createTag.classList = className;
 
 	return createTag;
-}
+};
 
 addBtn.addEventListener('click', addToDo);
 userInput.addEventListener('keydown', (event) => {
