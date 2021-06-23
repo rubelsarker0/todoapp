@@ -55,11 +55,7 @@ function deleteTodo(container, todoDiv) {
 
 const createToDoHtml = (userInput, container) => {
 	let todoDiv = create('div', 'pb-3 todo-item');
-
 	let inputGroupDiv = create('div', 'input-group');
-
-	// document.createElement('div');
-	// inputGroupDiv.className = 'input-group';
 
 	let input = create('input', 'form-control');
 	input.setAttribute('readonly', '');
