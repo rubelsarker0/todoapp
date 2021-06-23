@@ -21,10 +21,10 @@ function editTodo(input) {
 	editBtn.setAttribute('type', 'button');
 
 	editBtn.addEventListener('click', () => {
-		if (editBtn.innerHTML === 'EDIT' && input.value !== null) {
+		if (editBtn.innerHTML === 'EDIT') {
 			editBtn.innerHTML = 'UPDATE';
 			input.removeAttribute('readonly');
-		} else if (editBtn.innerHTML === 'UPDATE' && input.value !== null) {
+		} else if (editBtn.innerHTML === 'UPDATE') {
 			editBtn.innerHTML = 'EDIT';
 			input.setAttribute('readonly', '');
 		}
@@ -54,11 +54,12 @@ function deleteTodo(container, todoDiv) {
 }
 
 const createToDoHtml = (userInput, container) => {
-	let todoDiv = document.createElement('div');
-	todoDiv.classList = 'pb-3 todo-item';
+	let todoDiv = create('div', 'pb-3 todo-item');
 
-	let inputGroupDiv = document.createElement('div');
-	inputGroupDiv.className = 'input-group';
+	let inputGroupDiv = create('div', 'input-group');
+
+	// document.createElement('div');
+	// inputGroupDiv.className = 'input-group';
 
 	let input = create('input', 'form-control');
 	input.setAttribute('readonly', '');
