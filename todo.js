@@ -21,11 +21,19 @@ function editTodo(input) {
 	);
 	editBtn.innerHTML = 'EDIT';
 	editBtn.setAttribute('type', 'button');
+
 	editBtn.addEventListener('click', () => {
 		if (editBtn.innerHTML === 'EDIT') {
 			editBtn.innerHTML = 'UPDATE';
 			input.removeAttribute('readonly');
 		} else if (editBtn.innerHTML === 'UPDATE') {
+			editBtn.innerHTML = 'EDIT';
+			input.setAttribute('readonly', '');
+		}
+	});
+
+	input.addEventListener('keydown', (event) => {
+		if (event.keyCode === 13 && editBtn.innerHTML === 'UPDATE') {
 			editBtn.innerHTML = 'EDIT';
 			input.setAttribute('readonly', '');
 		}
