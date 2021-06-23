@@ -1,14 +1,12 @@
 const addBtn = document.querySelector('#addBtn');
-const todoInput = document.querySelector('#todo-input');
+const userInput = document.querySelector('#todo-input');
+const container = document.querySelector('#todo-container');
 
 const addToDo = () => {
-	const todoInput = document.querySelector('#todo-input');
-	const container = document.querySelector('#todo-container');
-
-	if (todoInput.value) {
-		let createdTodo = createToDoHtml(todoInput.value, container);
+	if (userInput.value) {
+		let createdTodo = createToDoHtml(userInput.value, container);
 		container.prepend(createdTodo);
-		todoInput.value = '';
+		userInput.value = '';
 	} else {
 		alert('please enter your do to..!!!');
 	}
@@ -23,10 +21,10 @@ function editTodo(input) {
 	editBtn.setAttribute('type', 'button');
 
 	editBtn.addEventListener('click', () => {
-		if (editBtn.innerHTML === 'EDIT') {
+		if (editBtn.innerHTML === 'EDIT' && input.value !== null) {
 			editBtn.innerHTML = 'UPDATE';
 			input.removeAttribute('readonly');
-		} else if (editBtn.innerHTML === 'UPDATE') {
+		} else if (editBtn.innerHTML === 'UPDATE' && input.value !== null) {
 			editBtn.innerHTML = 'EDIT';
 			input.setAttribute('readonly', '');
 		}
@@ -64,7 +62,7 @@ const createToDoHtml = (userInput, container) => {
 
 	let input = create('input', 'form-control');
 	input.setAttribute('readonly', '');
-	input.setAttribute('placeholder', 'Enter your edited task');
+	input.setAttribute('placeholder', 'Edit your to-do');
 	input.value = userInput;
 	inputGroupDiv.appendChild(input);
 
@@ -87,7 +85,7 @@ function create(tag, className) {
 }
 
 addBtn.addEventListener('click', addToDo);
-todoInput.addEventListener('keydown', (event) => {
+userInput.addEventListener('keydown', (event) => {
 	if (event.keyCode === 13) {
 		addToDo();
 	}
